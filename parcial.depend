@@ -1,0 +1,256 @@
+# depslib dependency file v1.0
+1524699666 source:d:\template\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"fantasma.h"
+	"utn.h"
+
+1524691839 source:d:\template\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1524691839 d:\template\utn.h
+
+1524700062 source:d:\template\fantasma.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"fantasma.h"
+	"utn.h"
+
+1524700062 d:\template\fantasma.h
+
+1524705693 source:d:\template_2\pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+
+1524700062 d:\template_2\fantasma.h
+
+1524691839 d:\template_2\utn.h
+
+1524691839 source:d:\template_2\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1524704878 source:d:\template_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+
+1524705120 d:\template_2\pantalla.h
+
+1524791004 source:d:\labo1\clase11\contratacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Contratacion.h"
+	"utn.h"
+	"Pantalla.h"
+
+1524791015 d:\labo1\clase11\contratacion.h
+	"pantalla.h"
+
+1524791070 d:\labo1\clase11\pantalla.h
+
+1524691840 d:\labo1\clase11\utn.h
+
+1524791042 source:d:\labo1\clase11\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+	"Contratacion.h"
+
+1524791107 source:d:\labo1\clase11\pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+
+1524691840 source:d:\labo1\clase11\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1525304688 source:d:\clase12\contratacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Contratacion.h"
+	"utn.h"
+	"Pantalla.h"
+
+1525304647 d:\clase12\contratacion.h
+	"pantalla.h"
+
+1525298482 d:\clase12\pantalla.h
+
+1524691840 d:\clase12\utn.h
+
+1524691840 source:d:\clase12\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1525306311 source:d:\clase12\informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Contratacion.h"
+	"utn.h"
+	"Pantalla.h"
+
+1525305115 source:d:\clase12\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+	"Contratacion.h"
+	"informar.h"
+
+1525298482 source:d:\clase12\pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+
+1525305074 d:\clase12\informar.h
+
+1525907612 source:c:\users\alumno\desktop\nueva carpeta\contratacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Contratacion.h"
+	"utn.h"
+	"Pantalla.h"
+
+1525908138 c:\users\alumno\desktop\nueva carpeta\contratacion.h
+	"pantalla.h"
+
+1525908085 c:\users\alumno\desktop\nueva carpeta\pantalla.h
+
+1524691840 c:\users\alumno\desktop\nueva carpeta\utn.h
+
+1525908226 source:c:\users\alumno\desktop\nueva carpeta\informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Contratacion.h"
+	"utn.h"
+	"Pantalla.h"
+
+1525908410 source:c:\users\alumno\desktop\nueva carpeta\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+	"Contratacion.h"
+	"informar.h"
+
+1525908071 c:\users\alumno\desktop\nueva carpeta\informar.h
+
+1525908031 source:c:\users\alumno\desktop\nueva carpeta\pantalla.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"pantalla.h"
+	"utn.h"
+
+1524691840 source:c:\users\alumno\desktop\nueva carpeta\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1525996998 source:d:\fferniot\parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<limits.h>
+	"cliente.h"
+	"utn.h"
+
+1525996874 d:\fferniot\parcial\cliente.h
+
+1524691840 d:\fferniot\parcial\utn.h
+
+1525998164 source:d:\fferniot\parcial\informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"publicacion.h"
+	"utn.h"
+	"cliente.h"
+
+1525998142 d:\fferniot\parcial\publicacion.h
+	"cliente.h"
+
+1526000121 source:d:\fferniot\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Cliente.h"
+	"utn.h"
+	"publicacion.h"
+	"informar.h"
+
+1526000136 d:\fferniot\parcial\informar.h
+	"publicacion.h"
+	"cliente.h"
+
+1524691840 source:d:\fferniot\parcial\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1525998004 source:d:\fferniot\parcial\publicacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"publicacion.h"
+	"utn.h"
+	"cliente.h"
+
