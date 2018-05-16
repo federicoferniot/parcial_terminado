@@ -5,6 +5,8 @@
 #include "publicacion.h"
 #include "utn.h"
 #include "cliente.h"
+#define ACTIVA 1
+#define PAUSADA 0
 
 
 /** \brief Muestra clientes y cantidad de publicaciones
@@ -13,7 +15,7 @@
  * \param publicaciones Publicacion*
  * \param limite_cli int
  * \param limite_pub int
- * \return int
+ * \return int OK, [-1] Hubo un error
  *
  */
 int informe_mostrarClientes(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
@@ -41,7 +43,7 @@ int informe_mostrarClientes(Cliente* clientes, Publicacion* publicaciones, int l
  * \param publicaciones Publicacion*
  * \param limite_cli int
  * \param limite_pub int
- * \return int
+ * \return int OK, [-1] Hubo un error
  *
  */
 int informe_clienteMasAvisosActivos(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
@@ -91,6 +93,15 @@ int informe_clienteMasAvisosActivos(Cliente* clientes, Publicacion* publicacione
     return retorno;
 }
 
+/** \brief Informa cliente con mas avisos pausados
+ *
+ * \param clientes Cliente*
+ * \param publicaciones Publicacion*
+ * \param limite_cli int
+ * \param limite_pub int
+ * \return int OK, [-1] Hubo un error
+ *
+ */
 int informe_clienteMasAvisosPausados(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
 {
     int retorno = -1;
@@ -138,6 +149,15 @@ int informe_clienteMasAvisosPausados(Cliente* clientes, Publicacion* publicacion
     return retorno;
 }
 
+/** \brief Informa cliente con mayor cantidad de avisos
+ *
+ * \param clientes Cliente*
+ * \param publicaciones Publicacion*
+ * \param limite_cli int
+ * \param limite_pub int
+ * \return int OK, [-1] Hubo un error
+ *
+ */
 int informe_clienteMasAvisos(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
 {
     int retorno = -1;
@@ -181,6 +201,13 @@ int informe_clienteMasAvisos(Cliente* clientes, Publicacion* publicaciones, int 
     return retorno;
 }
 
+/** \brief Informa cantidad de avisos para un rubro
+ *
+ * \param publicaciones Publicacion*
+ * \param limite int
+ * \return int OK, [-1] Hubo un error
+ *
+ */
 int informe_cantidadPublicacionesPorRubro(Publicacion* publicaciones, int limite)
 {
     int retorno=-1;
@@ -198,5 +225,141 @@ int informe_cantidadPublicacionesPorRubro(Publicacion* publicaciones, int limite
         }
         printf("\nCantidad de publicaciones para el rubro: %d", cantidadPublicaciones);
     }
+    return retorno;
+}
+
+/** \brief Informa el rubro con mayor cantidad de publicaciones activas
+ *
+ * \param publicaciones Publicacion*
+ * \param limite int
+ * \return int OK, [-1] Hubo un error
+ *
+ */
+int informe_rubroMasPublicacionesActivas(Publicacion* publicaciones, int limite)
+{
+    int retorno=-1;
+    int cantidadPublicacionesRubro=0;
+    int cantidadPublicacionesRubroActual=0;
+    int i,rubroMasPublicaciones=-1,rubroAux;
+    int primerElemento=1;
+    if(limite > 0 && publicaciones != NULL)
+    {
+        retorno = 0;
+        pub_ordenarPorRubro(publicaciones, limite, 0);
+        for(i=0;i<limite;i++)
+        {
+            if(!publicaciones[i].isEmpty && publicaciones[i].estado == ACTIVA)
+            {
+                if(primerElemento)
+                {
+                    rubroAux=publicaciones[i].numeroRubro;
+                    rubroMasPublicaciones=rubroAux;
+                    cantidadPublicacionesRubroActual++;;
+                    cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                    primerElemento=0;
+                }
+                else if(publicaciones[i].numeroRubro==rubroAux)
+                {
+                    cantidadPublicacionesRubroActual++;
+                    if(i==limite-1 && cantidadPublicacionesRubro<cantidadPublicacionesRubroActual)
+                    {
+                        cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                        rubroMasPublicaciones=rubroAux;
+                    }
+                }
+                else
+                {
+                    if(cantidadPublicacionesRubro<cantidadPublicacionesRubroActual)
+                    {
+                        cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                        rubroMasPublicaciones=rubroAux;
+                    }
+                    cantidadPublicacionesRubroActual=1;
+                    rubroAux=publicaciones[i].numeroRubro;
+                }
+            }
+            else if(i==limite-1 && !primerElemento)
+            {
+                if(cantidadPublicacionesRubro<cantidadPublicacionesRubroActual)
+                {
+                    cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                    rubroMasPublicaciones=rubroAux;
+                }
+            }
+        }
+        if(!primerElemento)
+        {
+            printf("\nRubro con mas publicaciones Activas: %d", rubroMasPublicaciones);
+        }
+    }
+
+    return retorno;
+}
+
+/** \brief Informa el rubro con menor cantidad de publicaciones activas
+ *
+ * \param publicaciones Publicacion*
+ * \param limite int
+ * \return int [0] OK, [-1] Hubo un error
+ *
+ */
+int informe_rubroMenosPublicacionesActivas(Publicacion* publicaciones, int limite)
+{
+    int retorno=-1;
+    int cantidadPublicacionesRubro=0;
+    int cantidadPublicacionesRubroActual=0;
+    int i,rubroMenosPublicaciones=-1,rubroAux;
+    int primerElemento=1;
+    if(limite > 0 && publicaciones != NULL)
+    {
+        retorno = 0;
+        pub_ordenarPorRubro(publicaciones, limite, 0);
+        for(i=0;i<limite;i++)
+        {
+            if(!publicaciones[i].isEmpty && publicaciones[i].estado == ACTIVA)
+            {
+                if(primerElemento)
+                {
+                    rubroAux=publicaciones[i].numeroRubro;
+                    rubroMenosPublicaciones=rubroAux;
+                    cantidadPublicacionesRubroActual++;;
+                    cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                    primerElemento=0;
+                }
+                else if(publicaciones[i].numeroRubro==rubroAux)
+                {
+                    cantidadPublicacionesRubroActual++;
+                    if(i==limite-1 && cantidadPublicacionesRubro>cantidadPublicacionesRubroActual)
+                    {
+                        cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                        rubroMenosPublicaciones=rubroAux;
+                    }
+                }
+                else
+                {
+                    if(cantidadPublicacionesRubro>cantidadPublicacionesRubroActual)
+                    {
+                        cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                        rubroMenosPublicaciones=rubroAux;
+                    }
+                    cantidadPublicacionesRubroActual=1;
+                    rubroAux=publicaciones[i].numeroRubro;
+                }
+            }
+            else if(i==limite-1 && !primerElemento)
+            {
+                if(cantidadPublicacionesRubro>cantidadPublicacionesRubroActual)
+                {
+                    cantidadPublicacionesRubro=cantidadPublicacionesRubroActual;
+                    rubroMenosPublicaciones=rubroAux;
+                }
+            }
+        }
+        if(!primerElemento)
+        {
+            printf("\nRubro con menos publicaciones Activas: %d", rubroMenosPublicaciones);
+        }
+    }
+
     return retorno;
 }

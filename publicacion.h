@@ -33,6 +33,7 @@ int pub_bajaPorIdCliente(Publicacion* array, int limite, int idCliente);
 int pub_cantidadPublicacionesPorIdCliente(Publicacion* array, int limite, int idCliente);
 int pub_cantidadPublicacionesPausadasPorIdCliente(Publicacion* array, int limite, int idCliente);
 int pub_cantidadPublicacionesActivasPorIdCliente(Publicacion* array, int limite, int idCliente);
+int pub_ordenarPorRubro(Publicacion* array,int limite, int orden);
 
 #endif // PANTALLA_H_INCLUDED
 

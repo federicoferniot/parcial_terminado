@@ -339,3 +339,32 @@ int pub_bajaPorIdCliente(Publicacion* array, int limite, int idCliente)
     return retorno;
 }
 
+int pub_ordenarPorRubro(Publicacion* array,int limite, int orden)
+{
+    int retorno = -1;
+    int i;
+    int flagSwap;
+    Publicacion auxiliarEstructura;
+
+    if(limite > 0 && array != NULL)
+    {
+        do
+        {
+            flagSwap = 0;
+            for(i=0;i<limite-1;i++)
+            {
+                if(!array[i].isEmpty && !array[i+1].isEmpty)
+                {
+                    if(((array[i].numeroRubro > array[i+1].numeroRubro) && orden || (array[i].numeroRubro < array[i+1].numeroRubro) && !orden)) //******
+                    {
+                        auxiliarEstructura = array[i];
+                        array[i] = array[i+1];
+                        array[i+1] = auxiliarEstructura;
+                        flagSwap = 1;
+                    }
+                }
+            }
+        }while(flagSwap);
+    }
+    return retorno;
+}

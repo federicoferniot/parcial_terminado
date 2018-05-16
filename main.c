@@ -29,7 +29,7 @@ int main()
     pub_altaForzada(publicaciones, LEN_PUB, 0, 10, "Publicacion 2");
     do
     {
-        getValidInt("\n\n1.Alta Cliente\n2.Modificar Cliente\n3.Baja Cliente\n4.Publicar\n5.Pausar Publicacion\n6.Reanudar Publicacion\n7.Imprimir Clientes\n8.Imprimir Publicaciones\n9.Informar clientes\n11.Salir\n10.Informar publicaciones\n","\nNo valida\n",&menu,1,11,1);
+        getValidInt("\n\n1.Alta Cliente\n2.Modificar Cliente\n3.Baja Cliente\n4.Publicar\n5.Pausar Publicacion\n6.Reanudar Publicacion\n7.Imprimir Clientes\n8.Imprimir Publicaciones\n9.Informar clientes\n10.Informar publicaciones\n11.Salir\n","\nNo valida\n",&menu,1,11,1);
         switch(menu)
         {
             case 1:
@@ -74,6 +74,8 @@ int main()
                 break;
             case 10:
                 informe_cantidadPublicacionesPorRubro(publicaciones, LEN_PUB);
+                informe_rubroMasPublicacionesActivas(publicaciones, LEN_PUB);
+                informe_rubroMenosPublicacionesActivas(publicaciones, 1);
                 break;
         }
 

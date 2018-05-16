@@ -254,3 +254,58 @@
 	"utn.h"
 	"cliente.h"
 
+1526423750 source:c:\users\feder\desktop\parcial\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	<limits.h>
+	"cliente.h"
+	"utn.h"
+
+1526423750 c:\users\feder\desktop\parcial\cliente.h
+
+1526423748 c:\users\feder\desktop\parcial\utn.h
+
+1526430103 source:c:\users\feder\desktop\parcial\informar.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"publicacion.h"
+	"utn.h"
+	"cliente.h"
+
+1526425687 c:\users\feder\desktop\parcial\publicacion.h
+	"cliente.h"
+
+1526429745 source:c:\users\feder\desktop\parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"Cliente.h"
+	"utn.h"
+	"publicacion.h"
+	"informar.h"
+
+1526423750 c:\users\feder\desktop\parcial\informar.h
+	"publicacion.h"
+	"cliente.h"
+
+1526428833 source:c:\users\feder\desktop\parcial\publicacion.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"publicacion.h"
+	"utn.h"
+	"cliente.h"
+
+1526423748 source:c:\users\feder\desktop\parcial\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
