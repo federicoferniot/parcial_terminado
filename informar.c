@@ -15,7 +15,7 @@
  * \param publicaciones Publicacion*
  * \param limite_cli int
  * \param limite_pub int
- * \return int OK, [-1] Hubo un error
+ * \return int [0] OK, [-1] Hubo un error
  *
  */
 int informe_mostrarClientes(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
@@ -43,7 +43,7 @@ int informe_mostrarClientes(Cliente* clientes, Publicacion* publicaciones, int l
  * \param publicaciones Publicacion*
  * \param limite_cli int
  * \param limite_pub int
- * \return int OK, [-1] Hubo un error
+ * \return int [0] OK, [-1] Hubo un error
  *
  */
 int informe_clienteMasAvisosActivos(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
@@ -99,7 +99,7 @@ int informe_clienteMasAvisosActivos(Cliente* clientes, Publicacion* publicacione
  * \param publicaciones Publicacion*
  * \param limite_cli int
  * \param limite_pub int
- * \return int OK, [-1] Hubo un error
+ * \return int [0] OK, [-1] Hubo un error
  *
  */
 int informe_clienteMasAvisosPausados(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
@@ -155,7 +155,7 @@ int informe_clienteMasAvisosPausados(Cliente* clientes, Publicacion* publicacion
  * \param publicaciones Publicacion*
  * \param limite_cli int
  * \param limite_pub int
- * \return int OK, [-1] Hubo un error
+ * \return int [0] OK, [-1] Hubo un error
  *
  */
 int informe_clienteMasAvisos(Cliente* clientes, Publicacion* publicaciones, int limite_cli, int limite_pub)
@@ -205,7 +205,7 @@ int informe_clienteMasAvisos(Cliente* clientes, Publicacion* publicaciones, int 
  *
  * \param publicaciones Publicacion*
  * \param limite int
- * \return int OK, [-1] Hubo un error
+ * \return int [0] OK, [-1] Hubo un error
  *
  */
 int informe_cantidadPublicacionesPorRubro(Publicacion* publicaciones, int limite)
@@ -232,7 +232,7 @@ int informe_cantidadPublicacionesPorRubro(Publicacion* publicaciones, int limite
  *
  * \param publicaciones Publicacion*
  * \param limite int
- * \return int OK, [-1] Hubo un error
+ * \return int [0] OK, [-1] Hubo un error
  *
  */
 int informe_rubroMasPublicacionesActivas(Publicacion* publicaciones, int limite)

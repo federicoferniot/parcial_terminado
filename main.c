@@ -7,8 +7,8 @@
 #include "publicacion.h"
 #include "informar.h"
 
-#define LEN_CLI 10
-#define LEN_PUB 100
+#define LEN_CLI 100
+#define LEN_PUB 1000
 
 int main()
 {
@@ -22,11 +22,6 @@ int main()
     cliente_init(clientes,LEN_CLI);
     pub_init(publicaciones,LEN_PUB);
 
-
-    cliente_altaForzada(clientes, LEN_CLI, "Carlos", "Fredes", 3);
-    cliente_altaForzada(clientes, LEN_CLI, "Juan", "Perez", 2);
-    pub_altaForzada(publicaciones, LEN_PUB, 0, 10, "Publicacion 1");
-    pub_altaForzada(publicaciones, LEN_PUB, 0, 10, "Publicacion 2");
     do
     {
         getValidInt("\n\n1.Alta Cliente\n2.Modificar Cliente\n3.Baja Cliente\n4.Publicar\n5.Pausar Publicacion\n6.Reanudar Publicacion\n7.Imprimir Clientes\n8.Imprimir Publicaciones\n9.Informar clientes\n10.Informar publicaciones\n11.Salir\n","\nNo valida\n",&menu,1,11,1);

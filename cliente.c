@@ -14,7 +14,7 @@ static int buscarLugarLibre(Cliente* array,int limite);
 
 
 
-/** \brief
+/** \brief  Inializa el array con lugares vacios
  * \param array Cliente*
  * \param limite int
  * \return int
@@ -35,6 +35,14 @@ int cliente_init(Cliente* array,int limite)
     return retorno;
 }
 
+/** \brief Muestra datos del cliente indicado por el ID
+ *
+ * \param array Cliente*
+ * \param limite int
+ * \param idCliente int
+ * \return int
+ *
+ */
 int cliente_mostrarPorId(Cliente* array, int limite, int idCliente)
 {
     int retorno=0;
@@ -48,6 +56,13 @@ int cliente_mostrarPorId(Cliente* array, int limite, int idCliente)
     return retorno;
 }
 
+/** \brief Muestra datos de los clientes dados de alta
+ *
+ * \param array Cliente*
+ * \param limite int
+ * \return int
+ *
+ */
 int cliente_mostrar(Cliente* array,int limite)
 {
     int retorno = -1;
@@ -64,6 +79,13 @@ int cliente_mostrar(Cliente* array,int limite)
     return retorno;
 }
 
+/** \brief Da de alta un cliente, solicitando ingresar los datos al usuario
+ *
+ * \param array Cliente*
+ * \param limite int
+ * \return int
+ *
+ */
 int cliente_alta(Cliente* array,int limite)
 {
     int retorno = -1;
@@ -107,7 +129,14 @@ int cliente_alta(Cliente* array,int limite)
     return retorno;
 }
 
-
+/** \brief Da de baja al cliente indicado por ID
+ *
+ * \param array Cliente*
+ * \param limite int
+ * \param id int
+ * \return int
+ *
+ */
 int cliente_baja(Cliente* array,int limite, int id)
 {
     int indiceAEliminar;
@@ -121,9 +150,14 @@ int cliente_baja(Cliente* array,int limite, int id)
     return retorno;
 }
 
-
-
-
+/** \brief Se le solicita ingresar al usuario los nuevos datos para el cliente indicado por ID
+ *
+ * \param array Cliente*
+ * \param limite int
+ * \param id int
+ * \return int
+ *
+ */
 int cliente_modificacion(Cliente* array,int limite, int id)
 {
     int retorno = -1;
@@ -210,8 +244,6 @@ static int buscarLugarLibre(Cliente* array,int limite)
     return retorno;
 }
 
-
-
 static int proximoId(void)
 {
     static int proximoId = -1;
@@ -220,8 +252,15 @@ static int proximoId(void)
 }
 
 
+/** \brief Devuelve el indice del array donde se encuentra el cliente indicado por ID
+ *
+ * \param array Cliente*
+ * \param limite int
+ * \param id int
+ * \return int [-1] Si se pasa un limite incorrecto, [-2] Si no se encuentra el ID
+ *
+ */
 int cliente_buscarPorId(Cliente* array,int limite, int id)
-//static int buscarPorId(Cliente* array,int limite, int id)
 {
     int retorno = -1;
     int i;
@@ -239,8 +278,6 @@ int cliente_buscarPorId(Cliente* array,int limite, int id)
     }
     return retorno;
 }
-
-
 
 int cliente_altaForzada(Cliente* array,int limite,char* nombre,char* apellido, int cuit)
 {
@@ -266,6 +303,14 @@ int cliente_altaForzada(Cliente* array,int limite,char* nombre,char* apellido, i
     return retorno;
 }
 
+/** \brief Devuelve el cuit del cliente indicado por ID
+ *
+ * \param array Cliente*
+ * \param limite int
+ * \param idCliente int
+ * \return int [-1] Si se pasa un limite incorrecto, [-2] Si no se encuentra el ID
+ *
+ */
 int cliente_obtenerCuitPorId(Cliente* array, int limite, int idCliente)
 {
     int retorno = -1;
@@ -284,71 +329,6 @@ int cliente_obtenerCuitPorId(Cliente* array, int limite, int idCliente)
     }
     return retorno;
 }
-/*
-int cliente_mostrarPreciosMenoresA(Cliente* array, int limite, float precioLimite)
-{
-    int retorno = -1;
-    int i;
-    if(limite > 0 && array != NULL)
-    {
-        retorno = 0;
-        for(i=0;i<limite;i++)
-        {
-            if(!array[i].isEmpty && array[i].precio<=precioLimite)
-                printf("[RELEASE] - %d - %s - %g\n",array[i].idCliente, array[i].nombre, array[i].precio);
-        }
-    }
-    return retorno;
-
-}
-
-int cliente_mostrarPreciosMayoresA(Cliente* array, int limite, float precioLimite)
-{
-    int retorno = -1;
-    int i;
-    if(limite > 0 && array != NULL)
-    {
-        retorno = 0;
-        for(i=0;i<limite;i++)
-        {
-            if(!array[i].isEmpty && array[i].precio>precioLimite)
-                printf("[RELEASE] - %d - %s - %g\n",array[i].idCliente, array[i].nombre, array[i].precio);
-        }
-    }
-    return retorno;
-
-}
-
-int cliente_listarSuperenPromedioPrecio(Cliente* array, int limite)
-{
-    float promedio;
-    cliente_promedioPrecios(array, limite, &promedio);
-    cliente_mostrarPreciosMayoresA(array, limite, promedio);
-    return 0;
-}
-
-int cliente_promedioPrecios(Cliente* array, int limite, float* promedio)
-{
-    int retorno=-1;
-    int i, contadorClientes=0;
-    float acumuladorPrecio=0;
-    if(limite>0)
-    {
-        retorno=0;
-        for(i=0;i<limite;i++)
-        {
-            if(!array[i].isEmpty)
-            {
-                acumuladorPrecio+=array[i].precio;
-                contadorClientes++;
-            }
-        }
-        *promedio=acumuladorPrecio/contadorClientes;
-    }
-    return retorno;
-}*/
-
-
 
 
 

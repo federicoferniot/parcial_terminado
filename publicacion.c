@@ -19,7 +19,7 @@ static int buscarLugarLibre(Publicacion* array,int limite);
 
 
 
-/** \brief
+/** \brief Inicializa el array con posiciones vacias
  * \param array Cliente*
  * \param limite int
  * \return int
@@ -55,6 +55,15 @@ int pub_mostrarDebug(Publicacion* array,int limite)
     return retorno;
 }
 
+/** \brief Muestra datos de las publicaciones dadas de alta
+ *
+ * \param array Publicacion*
+ * \param clientes Cliente*
+ * \param limite int
+ * \param limiteCli int
+ * \return int
+ *
+ */
 int pub_mostrar(Publicacion* array, Cliente* clientes, int limite, int limiteCli)
 {
     int retorno = -1;
@@ -74,8 +83,17 @@ int pub_mostrar(Publicacion* array, Cliente* clientes, int limite, int limiteCli
     return retorno;
 }
 
-int pub_alta(Publicacion* array,int limite,
-              Cliente* Clientes, int lenClientes)
+
+/** \brief Da de alta una publicacion, solicitando al usuario ingresar los datos
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param Clientes Cliente*
+ * \param lenClientes int
+ * \return int [0] OK, [-1] Limite incorrecto, [-2][-3][-4][-5] Error en el ingreso de datos
+ *
+ */
+int pub_alta(Publicacion* array,int limite, Cliente* Clientes, int lenClientes)
 {
     int retorno = -1;
     int i;
@@ -134,6 +152,14 @@ int pub_alta(Publicacion* array,int limite,
 }
 
 
+/** \brief Da de baja una publicacion indicada por ID
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param id int
+ * \return int [0] OK, [-1] Hubo un error
+ *
+ */
 int pub_baja(Publicacion* array,int limite, int id)
 {
     int indiceAEliminar;
@@ -148,8 +174,18 @@ int pub_baja(Publicacion* array,int limite, int id)
 }
 
 
+/** \brief Pone en PAUSADA una publicacion, indicada por el ID ingresado por el usuario
+ *
+ * \param array Publicacion*
+ * \param clientes Cliente*
+ * \param limite int
+ * \param limiteClientes int
+ * \return int [0] OK, [-1]Hubo un error
+ *
+ */
 int pub_pausarPublicacion(Publicacion* array, Cliente* clientes, int limite, int limiteClientes)
 {
+    int retorno=-1;
     int auxId;
     int posPublicacion;
     char opcion;
@@ -162,15 +198,26 @@ int pub_pausarPublicacion(Publicacion* array, Cliente* clientes, int limite, int
             opcion = getChar("Desea pausar la publicacion (s/n)");
             if(opcion=='s')
             {
+                retorno=0;
                 array[posPublicacion].estado = PAUSADA;
             }
         }
     }
-    return 0;
+    return retorno;
 }
 
+/** \brief Pone en ACTIVA una publicacion, indicada por el ID que ingresa el usuario
+ *
+ * \param array Publicacion*
+ * \param clientes Cliente*
+ * \param limite int
+ * \param limiteClientes int
+ * \return int [0]OK, [-1]Hubo un error
+ *
+ */
 int pub_reanudarPublicacion(Publicacion* array, Cliente* clientes, int limite, int limiteClientes)
 {
+    int retorno=-1;
     int auxId;
     int posPublicacion;
     char opcion;
@@ -183,11 +230,12 @@ int pub_reanudarPublicacion(Publicacion* array, Cliente* clientes, int limite, i
             opcion = getChar("Desea reanudar la publicacion (s/n)");
             if(opcion=='s')
             {
+                retorno = 0;
                 array[posPublicacion].estado = ACTIVA;
             }
         }
     }
-    return 0;
+    return retorno;
 }
 
 static int buscarLugarLibre(Publicacion* array,int limite)
@@ -208,8 +256,6 @@ static int buscarLugarLibre(Publicacion* array,int limite)
     return retorno;
 }
 
-
-
 static int proximoId(void)
 {
     static int proximoId = -1;
@@ -217,7 +263,14 @@ static int proximoId(void)
     return proximoId;
 }
 
-
+/** \brief Devuelve la posicion en el array de la publicacion indicada por ID
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param id int
+ * \return int [-1] Limite incorrecto, [-2] ID no encontrado
+ *
+ */
 static int buscarPorId(Publicacion* array,int limite, int id)
 {
     int retorno = -1;
@@ -257,6 +310,14 @@ int pub_altaForzada(Publicacion* array, int limite, int idCliente, int rubro, ch
     return retorno;
 }
 
+/** \brief Muestra los datos de las publicaciones que pertenezcan al ID del cliente indicado
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param idCliente int
+ * \return int [-1] Limite incorrecto
+ *
+ */
 int pub_mostrarPorIdCliente(Publicacion* array, int limite, int idCliente)
 {
     int retorno = -1;
@@ -273,6 +334,14 @@ int pub_mostrarPorIdCliente(Publicacion* array, int limite, int idCliente)
     return retorno;
 }
 
+/** \brief Devuelve la cantidad de publicaciones pertenecientes a un cliente indicado por ID
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param idCliente int
+ * \return int [-1]Limite incorrecto
+ *
+ */
 int pub_cantidadPublicacionesPorIdCliente(Publicacion* array, int limite, int idCliente)
 {
     int cantidadPublicaciones = -1;
@@ -289,6 +358,14 @@ int pub_cantidadPublicacionesPorIdCliente(Publicacion* array, int limite, int id
     return cantidadPublicaciones;
 }
 
+/** \brief Devuelve la cantidad de publicaciones pausadas pertenecientes a un cliente indicado por ID
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param idCliente int
+ * \return int [-1]Limite incorrecto
+ *
+ */
 int pub_cantidadPublicacionesPausadasPorIdCliente(Publicacion* array, int limite, int idCliente)
 {
     int cantidadPublicaciones = -1;
@@ -305,6 +382,14 @@ int pub_cantidadPublicacionesPausadasPorIdCliente(Publicacion* array, int limite
     return cantidadPublicaciones;
 }
 
+/** \brief Devuelve la cantidad de publicaciones activas pertenecientes a un cliente indicado por ID
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param idCliente int
+ * \return int [-1]Limite incorrecto
+ *
+ */
 int pub_cantidadPublicacionesActivasPorIdCliente(Publicacion* array, int limite, int idCliente)
 {
     int cantidadPublicaciones = -1;
@@ -321,6 +406,14 @@ int pub_cantidadPublicacionesActivasPorIdCliente(Publicacion* array, int limite,
     return cantidadPublicaciones;
 }
 
+/** \brief Da de baja las publicaciones pertenecientes a un cliente indicado por ID
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param idCliente int
+ * \return int [-1]Limite incorrecto
+ *
+ */
 int pub_bajaPorIdCliente(Publicacion* array, int limite, int idCliente)
 {
     int retorno = -1;
@@ -339,6 +432,14 @@ int pub_bajaPorIdCliente(Publicacion* array, int limite, int idCliente)
     return retorno;
 }
 
+/** \brief Ordena por rubro las publicaciones con el orden indicado
+ *
+ * \param array Publicacion*
+ * \param limite int
+ * \param orden int [0]Descendente [1]Ascendente
+ * \return int [0]OK, [-1]Limite incorrecto
+ *
+ */
 int pub_ordenarPorRubro(Publicacion* array,int limite, int orden)
 {
     int retorno = -1;
@@ -355,7 +456,7 @@ int pub_ordenarPorRubro(Publicacion* array,int limite, int orden)
             {
                 if(!array[i].isEmpty && !array[i+1].isEmpty)
                 {
-                    if(((array[i].numeroRubro > array[i+1].numeroRubro) && orden || (array[i].numeroRubro < array[i+1].numeroRubro) && !orden)) //******
+                    if((((array[i].numeroRubro > array[i+1].numeroRubro) && orden) || ((array[i].numeroRubro < array[i+1].numeroRubro) && !orden))) //******
                     {
                         auxiliarEstructura = array[i];
                         array[i] = array[i+1];

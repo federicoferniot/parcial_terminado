@@ -17,10 +17,7 @@ typedef struct
 int pub_init(Publicacion* array,int limite);
 int pub_mostrar(Publicacion* array, Cliente* clientes, int limite, int limiteCli);
 int pub_mostrarDebug(Publicacion* array,int limite);
-
-int pub_alta(Publicacion* arrayC,int limite,
-              Cliente* pantallas, int lenClientes);
-
+int pub_alta(Publicacion* arrayC,int limite, Cliente* pantallas, int lenClientes);
 int pub_baja(Publicacion* array,int limite, int id);
 int pub_modificacion(Publicacion* array,int limite, int id);
 int pub_ordenar(Publicacion* array,int limite, int orden);
